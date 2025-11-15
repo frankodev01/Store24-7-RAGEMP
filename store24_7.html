@@ -132,8 +132,8 @@
       gap: 15px;
       padding-right: 5px;
       overflow-y: auto;
-      max-height: 470px; /* scrollable list height */
-      scroll-behavior: smooth; /* smooth scrolling */
+      max-height: 383px;
+      scroll-behavior: smooth;
     }
 
     .product-card {
@@ -211,18 +211,36 @@
     ::-webkit-scrollbar-track {
       background: transparent;
     }
+
+    .alert-hero{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .alerts{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgb(212, 1, 1);
+      border-radius: 10px;
+      width: 90%;
+    }
+    .alerts p{
+      text-align: center;
+      color: red;
+    }
   </style>
 </head>
 <body>
   <div class="Main">
     <div class="store-bg">
       <div class="store-header">
-        <div>24/7 მაღაზია</div>
+        <div>24/7 Store</div>
         <div class="store-close-btn" @click="Closemenu">×</div>
       </div>
 
       <div class="store-body">
-        <!-- კატეგორიები -->
         <div class="product-lists">
           <div class="product-item"
                v-for="(category, key) in categories"
@@ -233,9 +251,8 @@
           </div>
         </div>
 
-        <!-- პროდუქტები -->
         <div class="products">
-          <input type="text" class="search" placeholder="ძიება..." v-model="searchQuery">
+          <input type="text" class="search" placeholder="Search..." v-model="searchQuery">
 
           <div class="product-grid">
             <div class="product-card"
@@ -245,10 +262,15 @@
               <div class="product-title">{{ item.Name }}</div>
               <div class="product-desc"></div>
               <div class="product-price">{{ formatMoney(item.Price) }}</div>
-              <button class="product-btn" @click="ItemSelect(item.Id)">ყიდვა</button>
+              <button class="product-btn" @click="ItemSelect(item.Id)">Buy</button>
             </div>
           </div>
         </div>
+      </div>
+      <div class="alert-hero">
+      <div v-model="alerts" class="alerts">
+        <p>{{ alerts }}</p>
+      </div>
       </div>
     </div>
   </div>

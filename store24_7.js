@@ -346,48 +346,47 @@ var store = new Vue({
         elements: [],
         type: 0,
         alerttimer: undefined,
-        alerts: "",
-        activeCategory: 'საჭმელი',
-        categories:{
-            "საჭმელი": [
-            { "Id": 5, "Name": "Pizza", "Icon": "inv-item-pizza", "Price": "150$" },
-            { "Id": 6, "Name": "Burger", "Icon": "inv-item-burger", "Price": "120$" },
-            { "Id": 7, "Name": "HotDog", "Icon": "inv-item-hotdog", "Price": "90$" },
-            { "Id": 8, "Name": "Sandwich", "Icon": "inv-item-sandwich", "Price": "80$" },
-            { "Id": 3, "Name": "Crisps", "Icon": "inv-item-crisps", "Price": "40$" },
-            { "Id": 329, "Name": "Buter", "Icon": "inv-item-buter", "Price": "50$" },
-            { "Id": 330, "Name": "Patatoes", "Icon": "inv-item-patatoes", "Price": "60$" },
-            { "Id": 332, "Name": "Podnosfood", "Icon": "inv-item-podnosfood", "Price": "200$" },
-            ],
-            "სასმელი": [
-            { "Id": 4, "Name": "Beer", "Icon": "inv-item-beer", "Price": "80$" },
-            { "Id": 9, "Name": "eCola", "Icon": "inv-item-eCola", "Price": "50$" },
-            { "Id": 10, "Name": "Sprunk", "Icon": "inv-item-sprunk", "Price": "50$" },
-            { "Id": 331, "Name": "Coffee", "Icon": "inv-item-coffee", "Price": "60$" }
-            ],
-            "ელექტრონიკა": [
-                { "Id": 7, "Name": "Camera", "Icon": "inv-item-camera", "Price": "750$", "ItemId": 231 },
-                { "Id": 19, "Name": "Radio", "Icon": "hud__icon-walkie-talkie", "Price": "1300$", "ItemId": 243 },
-                { "Id": 16, "Name": "Microphone", "Icon": "inv-item-microphone", "Price": "500$", "ItemId": 232 },
-                { "Id": 23, "Name": "SIM Card", "Icon": "inv-item-SimCard", "Price": "170$", "ItemId": 271 }
-            ],
-            "ინვენტარი": [
-                { "Id": 4, "Name": "Bag", "Icon": "inv-item-backpack", "Price": "7500$", "ItemId": -5 },
-                { "Id": 21, "Name": "Umbrella", "Icon": "inv-item-umbrella", "Price": "700$", "ItemId": 230 },
-                { "Id": 6, "Name": "Binoculars", "Icon": "inv-item-binoculars", "Price": "850$", "ItemId": 228 },
-                { "Id": 11, "Name": "Guitar", "Icon": "inv-item-guitar", "Price": "1600$", "ItemId": 233 },
-                { "Id": 13, "Name": "Key Ring", "Icon": "inv-item-key-2", "Price": "400$", "ItemId": 41 },
-            ],
-
-            "ხელსაწყოები": [
-                { "Id": 9, "Name": "Flashlight", "Icon": "inv-item-Flashlight", "Price": "170$", "ItemId": 191 },
-                { "Id": 12, "Name": "Hammer", "Icon": "inv-item-Hammer", "Price": "170$", "ItemId": 182 },
-                { "Id": 17, "Name": "Crowbar", "Icon": "inv-item-crowbar", "Price": "170$", "ItemId": 184 },
-                { "Id": 22, "Name": "Wrench", "Icon": "inv-item-Pipe-Wrench", "Price": "750$", "ItemId": 194 },
-                { "Id": 10, "Name": "Gas Can", "Icon": "inv-item-gasoline", "Price": "120$", "ItemId": 2 }
-            ]
+        alerts: "You do not have enough money..",
+        activeCategory: 'Food',
+categories:{
+    "Food": [
+        { "Id": 5, "Name": "Pizza", "Icon": "inv-item-pizza", "Price": "150$" },
+        { "Id": 6, "Name": "Burger", "Icon": "inv-item-burger", "Price": "120$" },
+        { "Id": 7, "Name": "HotDog", "Icon": "inv-item-hotdog", "Price": "90$" },
+        { "Id": 8, "Name": "Sandwich", "Icon": "inv-item-sandwich", "Price": "80$" },
+        { "Id": 3, "Name": "Crisps", "Icon": "inv-item-crisps", "Price": "40$" },
+        { "Id": 329, "Name": "Buter", "Icon": "inv-item-buter", "Price": "50$" },
+        { "Id": 330, "Name": "Patatoes", "Icon": "inv-item-patatoes", "Price": "60$" },
+        { "Id": 332, "Name": "Tray Food", "Icon": "inv-item-podnosfood", "Price": "200$" },
+    ],
+    "Drinks": [
+        { "Id": 4, "Name": "Beer", "Icon": "inv-item-beer", "Price": "80$" },
+        { "Id": 9, "Name": "eCola", "Icon": "inv-item-eCola", "Price": "50$" },
+        { "Id": 10, "Name": "Sprunk", "Icon": "inv-item-sprunk", "Price": "50$" },
+        { "Id": 331, "Name": "Coffee", "Icon": "inv-item-coffee", "Price": "60$" }
+    ],
+    "Electronics": [
+        { "Id": 7, "Name": "Camera", "Icon": "inv-item-camera", "Price": "750$", "ItemId": 231 },
+        { "Id": 19, "Name": "Radio", "Icon": "hud__icon-walkie-talkie", "Price": "1300$", "ItemId": 243 },
+        { "Id": 16, "Name": "Microphone", "Icon": "inv-item-microphone", "Price": "500$", "ItemId": 232 },
+        { "Id": 23, "Name": "SIM Card", "Icon": "inv-item-SimCard", "Price": "170$", "ItemId": 271 }
+    ],
+    "Inventory Items": [
+        { "Id": 4, "Name": "Bag", "Icon": "inv-item-backpack", "Price": "7500$", "ItemId": -5 },
+        { "Id": 21, "Name": "Umbrella", "Icon": "inv-item-umbrella", "Price": "700$", "ItemId": 230 },
+        { "Id": 6, "Name": "Binoculars", "Icon": "inv-item-binoculars", "Price": "850$", "ItemId": 228 },
+        { "Id": 11, "Name": "Guitar", "Icon": "inv-item-guitar", "Price": "1600$", "ItemId": 233 },
+        { "Id": 13, "Name": "Key Ring", "Icon": "inv-item-key-2", "Price": "400$", "ItemId": 41 },
+    ],
+    "Tools": [
+        { "Id": 9, "Name": "Flashlight", "Icon": "inv-item-Flashlight", "Price": "170$", "ItemId": 191 },
+        { "Id": 12, "Name": "Hammer", "Icon": "inv-item-Hammer", "Price": "170$", "ItemId": 182 },
+        { "Id": 17, "Name": "Crowbar", "Icon": "inv-item-crowbar", "Price": "170$", "ItemId": 184 },
+        { "Id": 22, "Name": "Wrench", "Icon": "inv-item-Pipe-Wrench", "Price": "750$", "ItemId": 194 },
+        { "Id": 10, "Name": "Gas Can", "Icon": "inv-item-gasoline", "Price": "120$", "ItemId": 2 }
+    ]
         },
-        cloud: "https://franko.rostevan.space/test/cloud/inventoryItems/items/",
+        cloud: "https://cdn.ragemp.su/test/cloud/inventoryItems/items/",
     },
 
     computed: {
@@ -415,12 +414,12 @@ var store = new Vue({
 
             let cats = {};
             this.elements.forEach(item => {
-                let category = item.Category || 'სხვა';
+                let category = item.Category || 'Other';
                 if (!cats[category]) cats[category] = [];
                 cats[category].push(item);
             });
             this.categories = cats;
-            this.activeCategory = Object.keys(cats)[0] || 'სხვა';
+            this.activeCategory = Object.keys(cats)[0] || 'Other';
         },
         formatMoney(amount) {
             return amount.toLocaleString('en-US');
